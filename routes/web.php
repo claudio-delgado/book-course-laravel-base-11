@@ -12,5 +12,9 @@ Route::get('/', function () {
 Route::get('test', [PrimerControlador::class, 'index']);
 Route::get('otro/{post?}/{otro?}', [PrimerControlador::class, 'otro']);
 
-Route::resource('post', PostController::class);
-Route::resource('category', CategoryController::class);
+Route::group(['prefix' => "dashboard"], function(){
+    Route::resources([
+        'post' => PostController::class,
+        'category' => CategoryController::class
+    ]);
+});
