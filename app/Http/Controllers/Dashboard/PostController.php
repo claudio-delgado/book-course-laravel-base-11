@@ -17,6 +17,8 @@ class PostController extends Controller
      */
     public function index()
     {
+        //session(['key' => 'value']);
+        session()->flush();
         $posts = Post::paginate(2);
         return view('dashboard.post.index', compact('posts'));
     }
@@ -39,7 +41,7 @@ class PostController extends Controller
     public function store(StoreRequest $request)
     {
         Post::create($request->validated());
-        return to_route("post.index");
+        return to_route("post.index")->with('status', 'Post creado.');
     }
 
     /**
@@ -75,7 +77,7 @@ class PostController extends Controller
         }
 
         $post->update($data);
-        return to_route("post.index");
+        return to_route("post.index")->with('status', 'Post modificado.');
     }
 
     /**
@@ -84,6 +86,6 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-        return to_route("post.index");
+        return to_route("post.index")->with('status', 'Post eliminado.');
     }
 }

@@ -8,6 +8,9 @@
 </head>
 <body>
     <header>CRUD posts & categories</header>
+    @session('key')
+            {{$value}}
+    @endsession
     @yield('content')
     <section>
         @yield('morecontent')
