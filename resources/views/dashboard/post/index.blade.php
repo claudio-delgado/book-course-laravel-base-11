@@ -4,8 +4,8 @@
 
     @include('dashboard.fragment._errors-form')
 
-    <a href="{{ route('post.create') }}" target='_blank'>Nuevo registro</a>
-    <table>
+    <a class='btn btn-primary' href="{{ route('post.create') }}" target='_blank'>Nuevo registro</a>
+    <table class='table'>
         <caption>Listado de posts</caption>
         <thead>
             <tr>
@@ -24,12 +24,12 @@
                 <td>{{$post->category->title}}</td>
                 <td>{{$post->posted}}</td>
                 <td>
-                    <a href="{{ route('post.show', $post) }}">Ver</a>
-                    <a href="{{ route('post.edit', $post) }}">Editar</a>
+                    <a class='btn btn-success' href="{{ route('post.show', $post) }}">Ver</a>
+                    <a class='btn btn-warning' href="{{ route('post.edit', $post) }}">Editar</a>
                     <form action="{{ route('post.destroy', $post) }}" method='POST'>
                         @method('DELETE')
                         @csrf
-                        <button type="submit">Eliminar</button>
+                        <button class='btn btn-danger' type="submit">Eliminar</button>
                     </form>
                     
                 </td> 

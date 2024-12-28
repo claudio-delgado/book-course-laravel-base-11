@@ -3,9 +3,10 @@
 @section('content')
 
     @include('dashboard.fragment._errors-form')
-
-    <a href="{{ route('category.create') }}" target='_blank'>Nuevo registro</a>
-    <table>
+    <a href="{{ route('category.create') }}" target='_blank' class="btn btn-primary">
+        Nuevo registro
+    </a>
+    <table class='table'>
         <caption>Listado de categorías</caption>
         <thead>
             <tr>
@@ -20,12 +21,13 @@
                 <td>{{$category->id}}</td>
                 <td>{{$category->title}}</td>
                 <td>
-                    <a href="{{ route('category.show', $category) }}">Ver</a>
-                    <a href="{{ route('category.edit', $category) }}">Editar</a>
+                    
                     <form action="{{ route('category.destroy', $category) }}" method='POST'>
                         @method('DELETE')
                         @csrf
-                        <button type="submit">Eliminar</button>
+                        <a class='btn btn-success' href="{{ route('category.show', $category) }}">Ver</a>
+                        <a class='btn btn-warning' href="{{ route('category.edit', $category) }}">Editar</a>
+                        <button type="submit" class='btn btn-danger'>Eliminar</button>
                     </form>
                     
                 </td> 

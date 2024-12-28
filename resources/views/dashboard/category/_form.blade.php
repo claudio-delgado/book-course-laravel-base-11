@@ -1,7 +1,7 @@
 @csrf
 <label for="">Title</label>
-<input type="text" name="title" value="{{old("title", $category->title)}}">
+<input type="text" class="form-control" name="title" value="{{old("title", $category->title)}}">
 <label for="">Slug</label>
-<input type="text" name="slug" value="{{old("slug", $category->slug)}}">
+<input type="text" class="form-control" name="slug" value="{{old("slug", $category->slug)}}">
 
-<input type="submit" value="Send">
+<input type="submit" class='btn btn-success' value="Send">

@@ -28,8 +28,17 @@
             @endisset
 
             <!-- Page Content -->
-            <main style="color:white">
-                @yield('content')
+            <main>
+                <div class="container mx-auto">
+                    @if (session('status'))
+                    <div class='card card-success'>
+                        {{ session('status')}}
+                    </div>
+                    @endif
+                    <div class='card card-white'>
+                        @yield('content')
+                    </div>
+                </div>
             </main>
         </div>
     </body>
