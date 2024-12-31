@@ -50,3 +50,7 @@
 .card-success {
     @apply bg-green-700
 }
+
+h1 {
+    @apply text-4xl
+}
