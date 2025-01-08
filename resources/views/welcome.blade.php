@@ -16,7 +16,7 @@
         </style>
     </head>
     <body class="font-sans antialiased dark:bg-black dark:text-white/50">
-        <div class="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50">
+        <!--div class="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50">
             <img id="background" class="absolute -left-20 top-0 max-w-[877px]" src="https://laravel.com/assets/img/welcome/background.svg" />
             <div class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
                 <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
@@ -167,6 +167,26 @@
                     </footer>
                 </div>
             </div>
-        </div>
+        </div!-->
     </body>
 </html>
+<script>
+    const urlFail500 = 'https://httpstat.us/500'
+    const urlSuccess = 'https://www.boredapi.com/api/activity'
+
+    //Then() & Catch() return success...
+    const headers= {
+        'Access-Control-Allow-Origin': '*'
+    }
+    const response = fetch(new Request(urlSuccess), { headers })
+	.then((resp) => {
+        if(!resp.ok){
+            throw new Error(`HTTP error! Status: ${resp.status}`)
+        }
+        return resp
+	})
+    .then((resp) => {
+        console.log("You could "+resp.data.activity)
+    })
+
+</script>
